@@ -9,6 +9,7 @@ import Section from '@/components/Section';
 import dynamic from "next/dynamic"
 import Images from '@/components/room/Images';
 import Amenities from '@/components/room/Amenities';
+import Similar from '@/components/room/Similar';
 const Map = dynamic(() => import('@/components/room/Map'), { ssr: false })
 
 
@@ -69,6 +70,7 @@ function Room({ room }: { room: any }) {
                             <div>Rated 4.68 out of 5 stars. 4.68 49 reviews</div>
                             <div>Are you the owner? Take ownership here! [create page to link to]</div>
                             <p>{room.description}</p>
+                            <div>Location: {room.city.name}</div>
                         </div>
                         <div>
                             Book with us! [add datepicker and stuff]
@@ -86,7 +88,9 @@ function Room({ room }: { room: any }) {
                     <Map lat={room.latitude} long={room.longitude} />
                 </Section>
 
-
+                <Section>
+                    <Similar similar={room.similar} />
+                </Section>
             </Layout>
         </>
     );
@@ -106,7 +110,7 @@ export async function getStaticProps(context: any) {
         .get('/api/v1/rooms/' + context.params.room_url)
         .then((response) => {
             room = response.data.room;
-            console.log(response.data);
+            // console.log(response.data);
         })
         .catch((error) => {
             // console.error(error);
