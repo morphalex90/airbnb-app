@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Room from "../Room";
 
 function Rooms({ rooms }: { rooms: any }) {
 
@@ -16,11 +17,11 @@ function Rooms({ rooms }: { rooms: any }) {
     return (
         <>
             <h3>Rooms</h3>
-            <ul>
+            <div className="rooms">
                 {rooms.data.map((room: any) =>
-                    <li key={room.id}><Link href={room.uri}>{room.name}</Link></li>
+                    <Room key={room.id} room={room} />
                 )}
-            </ul>
+            </div>
 
             <div className="pagination">
                 <ul className="pagination__list">
