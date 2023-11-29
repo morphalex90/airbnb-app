@@ -1,0 +1,9 @@
+.cities {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__single {
+        width: 100%;
+        max-width: 20%;
+    }
+}
