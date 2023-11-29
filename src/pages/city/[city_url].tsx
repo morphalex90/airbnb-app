@@ -3,12 +3,12 @@ import Head from 'next/head';
 // import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import axios from '@/lib/axios';
 import Layout from '@/components/Layout';
-import artistImgPlaceholder from '@/img/logo.jpg';
+import artistImgPlaceholder from '@/img/logo.png';
 import Section from '@/components/Section';
 import Rooms from '@/components/city/Rooms';
 import Subcities from '@/components/city/Subcities';
 
-function City({ city, subCities }: { city: any, subCities: any }) {
+function City({ city, subCities, rooms }: { city: any, subCities: any, rooms: any }) {
     // const [isLoading, setIsLoading] = useState(false);
 
     const ucfirst = (string: string) => string.charAt(0).toUpperCase() + string.slice(1);
@@ -60,12 +60,12 @@ function City({ city, subCities }: { city: any, subCities: any }) {
                 </Section>
 
                 <Section>
-                    {subCities.data?.length > 0 &&
+                    {subCities.length > 0 &&
                         <Subcities subCities={subCities} />
                     }
 
-                    {city.rooms?.data?.length > 0 &&
-                        <Rooms rooms={city.rooms} />
+                    {rooms?.data?.length > 0 &&
+                        <Rooms rooms={rooms} />
                     }
                 </Section>
             </Layout>
@@ -83,13 +83,15 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: any) {
     let city = null;
     let subCities = null;
+    let rooms = null;
 
     await axios
         .get('/api/v1/cities/' + context.params.city_url)
         .then((response) => {
             city = response.data.city;
             subCities = response.data.sub_cities;
-            console.log(response.data.city);
+            rooms = response.data.rooms;
+            // console.log(response.data);
         })
         .catch((error) => {
             // console.error(error);
@@ -105,6 +107,7 @@ export async function getStaticProps(context: any) {
         props: {
             city,
             subCities,
+            rooms,
         },
     }
 }
