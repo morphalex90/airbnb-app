@@ -1,0 +1,241 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 13px;
+
+    // min-height: 100vh;
+    // display: flex;
+    // flex-direction: column;
+}
+
+#__next {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+// h1 {
+//     font-size: 18px;
+//     line-height: 40px;
+//     margin-bottom: 0;
+//     font-weight: 600;
+
+//     @media only screen and (min-width: 768px) {
+//         font-size: 32px;
+//         margin-bottom: revert;
+//     }
+// }
+
+// h2 {
+//     font-size: 24px;
+//     line-height: 40px;
+// }
+
+// h3 {
+//     font-size: 18px;
+//     line-height: 40px;
+// }
+
+// h4 {
+//     font-size: 16px;
+//     line-height: 20px;
+//     font-weight: 300;
+//     margin-bottom: 10px;
+// }
+
+.visually-hidden {
+    background-color: #fff;
+    padding: 7px 3px;
+    border-radius: 0 0 3px 3px;
+    position: absolute;
+    left: 20px;
+    transform: translateY(-120%);
+    transition: transform 325ms ease-in;
+    color: #000 !important;
+    z-index: 1000;
+
+    &:focus {
+        transform: translateY(0);
+    }
+}
+
+a {
+    // text-decoration: none;
+    color: #000;
+    // transition: 0.4s all;
+
+    // &:hover {
+    //     text-decoration: underline;
+    // }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    text-align: center;
+
+    @media only screen and (min-width: 768px) {
+        text-align: left;
+    }
+}
+
+// .loading {
+//     position: fixed;
+//     left: 50%;
+//     top: 50%;
+//     transform: translate(-50%, -50%);
+//     height: 40px;
+//     width: 40px;
+//     background-image: url(../img/loader.svg);
+//     border-radius: 50%;
+//     z-index: 999;
+// }
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.well {
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    transition:
+        box-shadow 0.4s,
+        -moz-box-shadow 0.4,
+        -webkit-box-shadow 0.4;
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(30, 30, 50, 0.3);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(30, 30, 50, 0.3);
+    box-shadow: 0px 0px 10px 1px rgba(30, 30, 50, 0.3);
+
+    &:hover {
+        -webkit-box-shadow: 0px 0px 10px 1px rgba(30, 30, 50, 0.6);
+        -moz-box-shadow: 0px 0px 10px 1px rgba(30, 30, 50, 0.6);
+        box-shadow: 0px 0px 10px 1px rgba(30, 30, 50, 0.6);
+    }
+}
+
+.--scrollable {
+    overflow-x: auto;
+}
+
+.hidden-desktop {
+    @media only screen and (min-width: 768px) {
+        display: none;
+    }
+}
+
+.hidden-mobile {
+    @media only screen and (max-width: 768px) {
+        display: none; // on max-width
+    }
+}
+
+.sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.d-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    flex-direction: column;
+
+    @media only screen and (min-width: 768px) {
+        flex-direction: row;
+
+        > * {
+            flex-grow: 1;
+            flex-basis: 0;
+        }
+    }
+}
+
+.t-bold {
+    font-weight: bold;
+}
+
+.t-italic {
+    font-style: italic;
+}
+
+.t-underline {
+    text-decoration: underline;
+}
+
+.content-wrapper {
+    padding-top: 55px;
+
+    @media only screen and (min-width: 768px) {
+        flex: 1 1;
+        // display: flex;
+        // min-height: 602px;
+        padding-top: 64px;
+    }
+}
+
+p {
+    margin-top: 0;
+}
+
+.button {
+    display: inline-block;
+    color: #fff;
+    border: 0;
+    line-height: 30px;
+    padding: 0px 15px 0px 15px;
+    font-weight: bold;
+    cursor: pointer;
+
+    background-image: linear-gradient(145deg, #8832dc 17%, #531492 85%);
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 9px;
+    text-decoration: none;
+
+    &[disabled] {
+        color: grey;
+        background-color: #006400;
+        cursor: not-allowed;
+    }
+
+    &:hover {
+        box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.35);
+    }
+}
+
+.vertical-align {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

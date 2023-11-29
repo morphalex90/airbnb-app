@@ -1,0 +1,38 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    background-color: #fff;
+
+    &__container {
+        max-width: 1400px;
+        width: 95%;
+        margin: auto;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        flex-direction: column;
+
+        @media only screen and (min-width: 768px) {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+
+    &__logo {
+        width: 30%;
+
+        @media only screen and (min-width: 768px) {
+            width: 100%;
+            max-width: 30%;
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: block;
+            line-height: 1;
+        }
+    }
+}

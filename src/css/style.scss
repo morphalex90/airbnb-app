@@ -1,0 +1,16 @@
+$main-color: #776985;
+
+:root {
+    --main-color: #776985;
+}
+
+@import "general";
+@import "header";
+@import "navmain";
+@import "breadcrumbs";
+@import "form";
+@import "table";
+@import "pagination";
+@import "tabs";
+@import "footer";
+@import "section";
