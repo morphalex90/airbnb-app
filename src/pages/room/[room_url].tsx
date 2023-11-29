@@ -3,7 +3,7 @@ import Head from 'next/head';
 // import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import axios from '@/lib/axios';
 import Layout from '@/components/Layout';
-import artistImgPlaceholder from '@/img/logo.jpg';
+import artistImgPlaceholder from '@/img/logo.png';
 import Section from '@/components/Section';
 
 import dynamic from "next/dynamic"
