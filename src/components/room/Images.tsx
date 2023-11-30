@@ -27,8 +27,8 @@ function Images({ room }: { room: any }) {
                         <ul className="share-buttons">
                             <li><button type="button" onClick={() => addToLiked(room.id)}>&hearts;</button></li>
                             <li><Link href={'https://www.facebook.com/sharer/sharer.php?href=' + encodeURIComponent(process.env.NEXT_PUBLIC_APP_URL + room.uri)} target="_blank">Facebook</Link></li>
-                            <li><Link href={'https://twitter.com/share?url=' + encodeURIComponent(process.env.NEXT_PUBLIC_APP_URL + room.uri)} target="_blank">Twitter</Link></li>
-                            <li><Link href={'https://www.linkedin.com/shareArticle?url=' + encodeURIComponent(process.env.NEXT_PUBLIC_APP_URL + room.uri)} target="_blank">LinkedIn</Link></li>
+                            <li><Link href={'https://twitter.com/intent/tweet?text=' + room.name + '&url=' + encodeURIComponent(process.env.NEXT_PUBLIC_APP_URL + room.uri)} target="_blank">Twitter</Link></li>
+                            <li><Link href={'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(process.env.NEXT_PUBLIC_APP_URL + room.uri)} target="_blank">LinkedIn</Link></li>
                             <li><Link href={'https://pinterest.com/pin/create/button/?url=' + encodeURIComponent(process.env.NEXT_PUBLIC_APP_URL + room.uri)} target="_blank">Pinterest</Link></li>
                             <li><Link href={'https://reddit.com/submit?url=' + encodeURIComponent(process.env.NEXT_PUBLIC_APP_URL + room.uri)} target="_blank">Reddit</Link></li>
                             <li><Link href={'https://api.whatsapp.com/send?text=' + encodeURIComponent(process.env.NEXT_PUBLIC_APP_URL + room.uri)} target="_blank">WhatsApp</Link></li>
