@@ -6,9 +6,11 @@ function Room({ room }: { room: any }) {
     return (
         <div className="rooms__single">
             <Link href={room.uri}>
-                <Image src={placeholder} alt={room.name} />
-                <span className="rooms__single__name">{room.name}</span>
-                <span className="rooms__single__city">{room.city?.name}</span>
+                <Image src={(room.image ? room.image.url : placeholder)} alt={room.name} fill={true} unoptimized />
+                <span className="rooms__single__text">
+                    <span className="rooms__single__city">{room.city?.name}</span>
+                    <span className="rooms__single__name">{room.name}</span>
+                </span>
             </Link>
         </div>
     );
