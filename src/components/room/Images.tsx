@@ -13,15 +13,20 @@ function Images({ room }: { room: any }) {
     return (
         <>
             <div className="room__images">
+                {room.images.map((image: any) =>
+                    <Image key={image.id} src={image.url} alt={image.alt} unoptimized height={500} width={500} />
+                )}
                 <div><Image src={placeholder} alt="Main picture" /></div>
-                <div><Image src={placeholder} alt="Main picture" /></div>
+                {/* <div><Image src={placeholder} alt="Main picture" /></div> */}
             </div>
 
             <Section style={{ marginTop: '-100px', height: 100, position: 'relative' }}>
                 <div className="d-flex">
                     <div>
                         <h1>{room.name}</h1>
-                        <div><Image src={marker} alt="Location" width={30} /> Location: <Link href={room.city.uri}>{room.city.name}</Link></div>
+                        {room.city &&
+                            <div><Image src={marker} alt="Location" width={30} /> Location: <Link href={room.city.uri}>{room.city.name}</Link></div>
+                        }
                     </div>
                     <div>
                         <ul className="share-buttons">
