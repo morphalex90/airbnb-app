@@ -70,7 +70,7 @@ function Room({ room }: { room: any }) {
                             <br />
                             <div>Are you the owner? Take ownership here! [create page to link to]</div>
                             <br />
-                            <p dangerouslySetInnerHTML={{ __html: (room.description || '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel metus ipsum. Nunc in tempus libero, quis maximus arcu. Nunc purus orci, rhoncus sed congue in, pretium pellentesque est. Duis sodales enim ut placerat hendrerit. Curabitur nec odio mi. Aliquam pharetra pharetra quam, quis scelerisque eros tempus nec. Maecenas tristique facilisis tincidunt. Aenean magna velit, elementum at pretium ut, aliquam sit amet elit. Nullam blandit, nisi vitae iaculis vulputate, ligula felis malesuada elit, id egestas velit felis id lacus. Praesent nisi eros, rutrum vulputate cursus at, ornare at ipsum. Vestibulum et nisi sapien. Cras a nisl ultrices, eleifend neque nec, hendrerit ligula. Morbi ut sem placerat, elementum felis in, cursus augue.</p><p>Nunc id augue tellus. Mauris pulvinar, lectus sit amet rhoncus dignissim, diam ex maximus lorem, ac eleifend est ex id eros. Aenean at lorem sed dolor maximus sagittis. Morbi cursus diam et molestie rhoncus. Phasellus id bibendum orci. Mauris sollicitudin mauris eget ex viverra, eget sagittis magna pharetra. Morbi feugiat maximus mi, id sodales augue malesuada nec. Vivamus nec tempus elit. Mauris elementum non erat et blandit. Etiam nec vehicula mi</p>.') }}></p>
+                            <div dangerouslySetInnerHTML={{ __html: (room.description || '') }}></div>
                         </div>
                         <div>
                             Book with us! [add datepicker and stuff]
@@ -82,7 +82,9 @@ function Room({ room }: { room: any }) {
 
                 <Section>
                     <div className="d-flex">
-                        <Amenities amenities={room.amenities} />
+                        <div>
+                            <Amenities amenities={room.amenities} />
+                        </div>
                         <div>
                             [ads]
                         </div>
