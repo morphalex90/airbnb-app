@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Room from "../Room";
 
-function Rooms({ rooms }: { rooms: any }) {
+function Rooms({ rooms, pagination = true }: { rooms: any, pagination?: boolean }) {
 
     const paginate = (next: any) => {
         let nextPage = null;
@@ -18,20 +18,22 @@ function Rooms({ rooms }: { rooms: any }) {
         <>
             <h3>Rooms</h3>
             <div className="rooms">
-                {rooms.data.map((room: any) =>
+                {rooms?.data?.map((room: any) =>
                     <Room key={room.id} room={room} />
                 )}
             </div>
 
-            <div className="pagination">
-                <ul className="pagination__list">
-                    {rooms.links.map((page: any) =>
-                        <li key={page.label}>
-                            <button className={page.active === true ? 'is-active' : ''} type="button" disabled={rooms.current_page === page.label} onClick={() => paginate(page.url)}>{page.label}</button>
-                        </li>
-                    )}
-                </ul>
-            </div>
+            {pagination &&
+                <div className="pagination">
+                    <ul className="pagination__list">
+                        {rooms?.links?.map((page: any) =>
+                            <li key={page.label}>
+                                <button className={page.active === true ? 'is-active' : ''} type="button" disabled={rooms.current_page === page.label} onClick={() => paginate(page.url)}>{page.label}</button>
+                            </li>
+                        )}
+                    </ul>
+                </div>
+            }
         </>
     );
 }
