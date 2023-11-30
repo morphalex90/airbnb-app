@@ -17,8 +17,8 @@
             text-decoration: none;
         }
 
-        &__img {
-        }
+        // &__img {
+        // }
 
         &__name {
             display: block;
@@ -26,6 +26,56 @@
 
         &__city {
             display: block;
+        }
+    }
+}
+
+.room {
+    // position: relative;
+
+    .share-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: right;
+        gap: 10px;
+        list-style-type: none;
+
+        li {
+            a,
+            button {
+                display: block;
+                text-decoration: none;
+                padding: 10px 6px;
+                background-color: purple;
+                color: #fff;
+                border-radius: 7px;
+                border: 1px solid #fff;
+                cursor: pointer;
+                transition: all 0.3s;
+
+                &:hover {
+                    color: purple;
+                    border: 1px solid purple;
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+
+    &__images {
+        display: flex;
+        position: relative;
+
+        &::before {
+            content: "";
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.5);
+            // backdrop-filter: blur(5px);
         }
     }
 }
