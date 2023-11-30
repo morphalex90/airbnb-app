@@ -16,4 +16,4 @@ What will be added in the next future:
 - add amenities pages and show paginated relative rooms
 - build more cvs imports from different sources
 - gather more info for each room
-- apply a better design (I'm defenetely not a designer :D )
+- apply a better design (I'm definitely not a designer :D )
