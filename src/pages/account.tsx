@@ -40,7 +40,7 @@ export default function Account({ user }: { user: any }) {
 
         <br />
         {/* <form onSubmit={handlePetSubmit}>
-          <div className="form-field">
+          <div className="form__field">
             <label htmlFor="name">Name</label>
             <input type="text" name="name" id="name" value={pet.name} onChange={handleChange} required />
           </div>

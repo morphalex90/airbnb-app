@@ -35,18 +35,18 @@ export default function Login() {
   return (
     <Layout page="login">
       <Section>
-        <form onSubmit={handleLogin}>
-          <div className="form-field">
-            <label htmlFor="email">Email</label>
+        <form className="form" onSubmit={handleLogin}>
+          <div className="form__field">
+            <label htmlFor="email">Email *</label>
             <input type="email" name="email" placeholder="you@example.com" value={form.email} onChange={handleChange} required />
           </div>
 
-          <div className="form-field">
-            <label htmlFor="password">Password</label>
+          <div className="form__field">
+            <label htmlFor="password">Password *</label>
             <input type="password" name="password" placeholder="••••••••" value={form.password} onChange={handleChange} required />
           </div>
 
-          <button type="submit" className="button">Login</button>
+          <button type="submit">Login</button>
         </form>
       </Section>
     </Layout>

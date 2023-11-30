@@ -1,3 +1,35 @@
-.form-field {
-    margin-bottom: 15px;
+.form {
+    border: 1px solid lightgray;
+    // display: inline-block;
+    border-radius: 15px;
+    overflow: hidden;
+
+    &__field {
+        border-bottom: 1px solid lightgray;
+        position: relative;
+
+        label {
+            display: block;
+            font-size: 12px;
+            position: absolute;
+            top: 10px;
+            left: 14px;
+        }
+
+        input {
+            border: none;
+            padding: 30px 14px 14px 14px;
+            width: 100%;
+        }
+    }
+
+    button[type="submit"] {
+        display: block;
+        border: 0;
+        background-image: linear-gradient(145deg, #8832dc 17%, #531492 85%);
+        color: #fff;
+        padding: 20px;
+        width: 100%;
+        cursor: pointer;
+    }
 }

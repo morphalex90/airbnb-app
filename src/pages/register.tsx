@@ -13,14 +13,14 @@ export default function Register() {
     axios
       .post('/api/v1/auth/register', form)
       .then((response) => {
-        if (response.status === 200) { // correct credentials
-          window.location.href = '/';
+        if (response.status === 201) { // correct credentials
+          window.location.href = '/login';
         }
         // setIsLoading(false);
         // console.log(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
         // setIsLoading(false);
       });
   }
@@ -32,38 +32,38 @@ export default function Register() {
   return (
     <Layout page="login">
       <Section>
-        <form onSubmit={handleRegister}>
-          <div className="form-field">
-            <label htmlFor="email">Email</label>
+        <form className="form" onSubmit={handleRegister}>
+          <div className="form__field">
+            <label htmlFor="email">Email *</label>
             <input type="email" name="email" placeholder="you@example.com" value={form.email} onChange={handleChange} required />
           </div>
 
-          <div className="form-field">
-            <label htmlFor="password">Password</label>
+          <div className="form__field">
+            <label htmlFor="password">Password *</label>
             <input type="password" name="password" placeholder="••••••••" value={form.password} onChange={handleChange} required />
           </div>
 
-          <div className="form-field">
-            <label htmlFor="password_confirmation">Password confirmation</label>
+          <div className="form__field">
+            <label htmlFor="password_confirmation">Password confirmation *</label>
             <input type="password" name="password_confirmation" placeholder="••••••••" value={form.password_confirmation} onChange={handleChange} required />
           </div>
 
-          <div className="form-field">
+          <div className="form__field">
             <label htmlFor="first_name">First name</label>
             <input type="text" name="first_name" placeholder="John" value={form.first_name} onChange={handleChange} />
           </div>
 
-          <div className="form-field">
+          <div className="form__field">
             <label htmlFor="last_name">Last name</label>
             <input type="text" name="last_name" placeholder="Doe" value={form.last_name} onChange={handleChange} />
           </div>
 
-          <div className="form-field">
+          <div className="form__field">
             <label htmlFor="username">Username</label>
             <input type="text" name="username" placeholder="johndoe" value={form.username} onChange={handleChange} />
           </div>
 
-          <button type="submit" className="button">Register</button>
+          <button type="submit">Register</button>
         </form>
       </Section>
     </Layout>
