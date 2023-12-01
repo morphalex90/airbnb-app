@@ -10,6 +10,7 @@ import dynamic from "next/dynamic"
 import Images from '@/components/room/Images';
 import Amenities from '@/components/room/Amenities';
 import Similar from '@/components/room/Similar';
+import Image from 'next/image';
 const Map = dynamic(() => import('@/components/room/Map'), { ssr: false })
 
 
@@ -67,8 +68,23 @@ function Room({ room }: { room: any }) {
                     <div className="d-flex">
                         <div>
                             <div>Rated 4.68 out of 5 stars. 4.68 49 reviews</div>
+                            <div>Guests: {room.guests}</div>
+                            <div>Bedrooms: {room.bedrooms}</div>
+                            <div>Beds: {room.beds}</div>
+                            <div>Bathrooms: {room.bathrooms}</div>
                             <br />
                             <div>Are you the owner? Take ownership here! [create page to link to]</div>
+                            <br />
+                            <div>
+                                <div>Host:</div>
+                                {room.hosts.map((host: any) =>
+                                    <>
+                                        <div key={host.id}>{host.airbnb_host_name}</div>
+                                        <div><Image src={host.image ? host.image.url : placeholder} alt={host.airbnb_host_name} height={400} width={400} unoptimized /></div>
+                                    </>
+                                )}
+                            </div>
+
                             <br />
                             <div dangerouslySetInnerHTML={{ __html: (room.description || '') }}></div>
                         </div>
@@ -120,7 +136,7 @@ export async function getStaticProps(context: any) {
             // console.log(response.data);
         })
         .catch((error) => {
-            // console.error(error);
+            console.error(error.response.data);
         });
 
     if (room === null) {
