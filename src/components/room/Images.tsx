@@ -24,9 +24,20 @@ function Images({ room }: { room: any }) {
                 <div className="d-flex">
                     <div>
                         <h1>{room.name}</h1>
-                        {room.city &&
-                            <div><Image src={marker} alt="Location" width={30} /> Location: <Link href={room.city.uri}>{room.city.name}</Link></div>
-                        }
+
+                        <div className="d-flex">
+                            {room.city &&
+                                <div><Image src={marker} alt="Location" width={30} /> Location: <Link href={room.city.uri}>{room.city.name}</Link></div>
+                            }
+
+                            {room.property_type &&
+                                <div>Property type: {room.property_type.name}</div>
+                            }
+
+                            {room.room_type &&
+                                <div>Room type: {room.room_type.name}</div>
+                            }
+                        </div>
                     </div>
                     <div>
                         <ul className="share-buttons">
