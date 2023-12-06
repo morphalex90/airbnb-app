@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Room from "../Room";
+import Room from '@/components/Room';
 
 function Rooms({ rooms, pagination = true }: { rooms: any, pagination?: boolean }) {
 
