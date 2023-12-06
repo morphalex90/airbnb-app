@@ -11,6 +11,7 @@ import Images from '@/components/room/Images';
 import Amenities from '@/components/room/Amenities';
 import Similar from '@/components/room/Similar';
 import Image from 'next/image';
+import Book from '@/components/room/Book';
 const Map = dynamic(() => import('@/components/room/Map'), { ssr: false })
 
 
@@ -77,11 +78,11 @@ function Room({ room }: { room: any }) {
                             <br />
                             <div>
                                 <div>Host:</div>
-                                {room.hosts.map((host: any) =>
-                                    <>
+                                {room.hosts?.map((host: any) =>
+                                    <div key={host.id}>
                                         <div key={host.id}>{host.airbnb_host_name}</div>
                                         <div><Image src={host.image ? host.image.url : placeholder} alt={host.airbnb_host_name} height={400} width={400} unoptimized /></div>
-                                    </>
+                                    </div>
                                 )}
                             </div>
 
@@ -89,7 +90,7 @@ function Room({ room }: { room: any }) {
                             <div dangerouslySetInnerHTML={{ __html: (room.description || '') }}></div>
                         </div>
                         <div>
-                            Book with us! [add datepicker and stuff]
+                            <Book room={room} />
                         </div>
 
                     </div>
