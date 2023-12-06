@@ -5,7 +5,6 @@ import clientAxiosInstance from '@/lib/axios';
 import Section from '@/components/Section'
 import Layout from '@/components/Layout'
 import hero from '@/img/hero.png'
-import Room from '@/components/Room';
 import Rooms from '@/components/city/Rooms';
 
 export default function Index() {
