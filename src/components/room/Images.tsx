@@ -14,10 +14,9 @@ function Images({ room }: { room: any }) {
         <>
             <div className="room__images">
                 {room.images.map((image: any) =>
-                    <Image key={image.id} src={image.url} alt={image.alt} unoptimized height={500} width={500} />
+                    <Image key={image.id} src={image.url} alt={image.alt} unoptimized height={500} width={500} priority />
                 )}
-                <div><Image src={placeholder} alt="Main picture" /></div>
-                {/* <div><Image src={placeholder} alt="Main picture" /></div> */}
+                <div><Image src={placeholder} alt="Main picture" priority /></div>
             </div>
 
             <Section style={{ marginTop: '-100px', height: 100, position: 'relative' }}>
