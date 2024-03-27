@@ -12,6 +12,7 @@ import Amenities from '@/components/room/Amenities';
 import Similar from '@/components/room/Similar';
 import Image from 'next/image';
 import Book from '@/components/room/Book';
+import Link from 'next/link';
 const Map = dynamic(() => import('@/components/room/Map'), { ssr: false })
 
 
@@ -74,22 +75,30 @@ function Room({ room }: { room: any }) {
                             <div>Beds: {room.beds}</div>
                             <div>Bathrooms: {room.bathrooms}</div>
                             <br />
-                            <div>Are you the owner? Take ownership here! [create page to link to]</div>
+                            <div>Are you the owner? Take ownership <Link href={''} className="button">here</Link>!</div>
                             <br />
                             <div>
                                 <div>Host:</div>
-                                {room.hosts?.map((host: any) =>
+                                {/* {room.hosts?.map((host: any) =>
                                     <div key={host.id}>
                                         <div key={host.id}>{host.airbnb_host_name}</div>
                                         <div><Image src={host.image ? host.image.url : placeholder} alt={host.airbnb_host_name} height={400} width={400} unoptimized /></div>
                                     </div>
-                                )}
+                                )} */}
+
+                                {room.host &&
+                                    <div>
+                                        <div>{room.host[0].airbnb_host_name}</div>
+                                        <div><Image src={room.host[0].image ? room.host[0].image.url : placeholder} alt={room.host[0].airbnb_host_name} height={400} width={400} unoptimized /></div>
+                                    </div>
+                                }
                             </div>
 
                             <br />
                             <div dangerouslySetInnerHTML={{ __html: (room.description || '') }}></div>
                         </div>
                         <div>
+                            <h3 className="text-center">Book your room!</h3>
                             <Book room={room} />
                         </div>
 
@@ -134,7 +143,7 @@ export async function getStaticProps(context: any) {
         .get('/api/v1/rooms/' + context.params.room_url)
         .then((response) => {
             room = response.data.room;
-            // console.log(response.data);
+            console.log(response.data.room.host);
         })
         .catch((error) => {
             console.error(error.response.data);
